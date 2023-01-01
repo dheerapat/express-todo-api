@@ -23,8 +23,8 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.get('/:todo', (req, res) => {
-  let newTodo = new todo({todo: req.params.todo})
+app.post('/add', (req, res) => {
+  let newTodo = new todo({todo: req.body.todo})
   newTodo.save((err, data) => {
     if (err) {
       console.error(err)
